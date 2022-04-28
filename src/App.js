@@ -1,25 +1,27 @@
-import logo from './logo.svg';
 import './App.css';
+import React from 'react';
+import { Routes, Route, Link } from 'react-router-dom';
+import Moon from '../src/pages/Menues/Moon/src/moon_Menu';
+import Resturants from '../src/components/availableResturants';
+import Arcaffe from '../src/pages/Menues/Arcaffe/src/arcaffe_Menu';
+import Giraffe from '../src/pages/Menues/Giraffe/src/giraffe_Menu';
+import Gluteria from '../src/pages/Menues/Gluteria/src/gluteria_Menu';
+import { BrowserRouter } from 'react-router-dom';
 
-function App() {
+const App = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <BrowserRouter>
+      <Routes >
+        <Route path="/" element={<Resturants />} />
+        <Route path="/moon" element={<Moon />} />
+        <Route path="/arcaffe" element={<Arcaffe />} />
+        <Route path="/giraffe" element={<Giraffe />} />
+        <Route path="/gluteria" element={<Gluteria />} />
+      </Routes>
+    </BrowserRouter>
   );
 }
 
 export default App;
+
+//remove browserrouter so it will work (without moon)
